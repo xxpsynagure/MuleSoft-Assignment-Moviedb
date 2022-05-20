@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/home.css">
+    <title>Document</title>
+</head>
+<body>
+    {% block movies %}
+    <br><br>
+    <div class="heading">
+        <img src="../static/images/Retro Pop Movie Time Quotes Instagram Post.png" alt="heading" class="heading"></img>
+    </div>
+    <h1 >Pragnya's Movie Collection</h1>
+    
+    <section>
+    
+        <h2>Let's see whether your favourite Movie, Actress, Actor, Year of Release or Director matches with mine</h2>
+       
+        <form action="/search" method="post">
+        <select id="movval" required name="movval">
+            <option disabled>Choose Field</option>
+            <option value="MovieName">Movie Name</option>
+            <option value="MaleLead">Actor</option>
+            <option value="FemaleLead">Actress</option>
+            <option value="YearOfRelease">Year of Release</option>
+            <option value="Director">Director</option>
+        </select>
+        &nbsp; 
+        <input type="text" placeholder="Enter the value" id="movip" name="movip"> 
+    
+        <br><br>
+        <!-- <input type="submit" value="Submit" onclick="search(document.getElementById('movval').value, document.getElementById('movip').value)"> -->
+        <input type="submit" value="SUBMIT">
+        </form>
+    </section>
+
+    <br><br>
+    <div style="color:black">
+        <h2 style="text-align: center; font-size:3rem;"> {{head}} </h2> 
+        <center>
+            <table class="styled-table">
+                <tr>
+                    <th>Movie Name</th><th>Male Lead</th><th>Female Lead</th> <th>Year of Release</th> <th>Director</th>
+                </tr>
+                {% for row in movies%}
+                <tr>
+                    {% for value in row %}
+                    <td>{{value}}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+    </div>
+    {% endblock %}
+</body>
+</html>

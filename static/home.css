@@ -1,0 +1,68 @@
+body {
+    background-color: rgb(245, 119, 161);
+    color:white;
+}
+
+.about {
+    display:flex;
+}
+
+.heading {
+    margin-top: 1%;
+    display: flex;
+    align-items: center;
+    height: 50%;
+    width: 50%;
+    justify-content: center;
+    font-size: 2.5rem;
+    animation-duration: 1.5s;
+    animation-direction: normal;
+    animation-name: moveCenter;
+}  
+@keyframes moveCenter {
+    from {
+        margin-right: -200%;
+    }
+    to {
+        margin-right: 0%;
+    }
+}
+
+h1 {
+    display: inline-block;
+    position: absolute;
+    top: 25%;
+    right: 17%;
+    font-size: 3rem;
+    color: white;
+    animation: fadeIn linear 4s;
+  }
+  
+  @keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+
+.btn {
+  display:flex;
+}
+
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  text-align:center;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+  .styled-table th,
+  .styled-table td {
+  padding: 12px 15px;
+  } 
+  .styled-table tbody tr {
+      border-bottom: 1px solid #dddddd;
+  }
+  .styled-table tbody tr:nth-of-type(even) {
+      background-color: #f3f3f3;
+  }
