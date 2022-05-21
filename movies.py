@@ -24,11 +24,11 @@ def home():
         try:
             sql = "SELECT MovieName, MaleLead, Femalelead, YearOfRelease, Director FROM MovDetails WHERE Ratings = 5;"
             cur.execute(sql)
-        except(IntegrityError,OperationalError) as e:
+        except Exception as e:
             print(e)
         data = cur.fetchall()
         print(data)
-    except DatabaseError or DataError as e:
+    except Exception as e:
         print(e)
     return render_template("index.html", movies = data, head = "My 5 Rated Movies")
 
@@ -43,12 +43,12 @@ def search():
                 sql = "SELECT MovieName, MaleLead, Femalelead, YearOfRelease, Director FROM MovDetails WHERE %s = '%s';" % (request.form.get('movval'),request.form.get('movip'))
                 print(sql)
                 cur.execute(sql)
-            except(IntegrityError,OperationalError) as e:
+            except Exception as e:
                 print(e)
             data = cur.fetchall()
             print(data)
 
-        except DatabaseError or DataError as e:
+        except Exception as e:
             print(e)
         if(data == ()):
             return render_template("index.html", movies = data, head='Oops! We have different taste')
@@ -62,11 +62,11 @@ def admin():
         try:
             sql = "SELECT MovieName, MaleLead, Femalelead, YearOfRelease, Director FROM MovDetails WHERE Ratings = 5;"
             cur.execute(sql)
-        except(IntegrityError,OperationalError) as e:
+        except Exception as e:
             print(e)
         data = cur.fetchall()
         print(data)
-    except DatabaseError or DataError as e:
+    except Exception as e:
         print(e)
     return render_template("admin.html")
 
@@ -87,12 +87,13 @@ def adminfill():
                 print(sql)
                 cur.execute(sql)
                 mysql.connection.commit() 
+                return render_template("admin.html",success = 'Movie Successfully updated!')    
             except Exception as e:
                 print(e)
                 
         except Exception as e:
                 print(e)
-    return render_template("admin.html")
+    return render_template("admin.html", success = "Update failed!")
             
 
 if(__name__ == "__main__"):
