@@ -72,26 +72,26 @@ def admin():
 
 @app.route("/adminfill", methods = ["GET","POST"])
 def adminfill():
-    if(request.method =='POST'):
-        params = (request.form.get('movie'),
+    
+    if(request.method == 'POST'):    
+        try:
+            cur= mysql.connection.cursor()
+            try:
+                sql = " INSERT INTO MovDetails (MovieName, MaleLead, FemaleLead, YearOfRelease, Director, Ratings) values( '%s','%s','%s','%s','%s',%s);" % (request.form.get('movie'),
         request.form.get('actor'),
         request.form.get('actress'),
         request.form.get('yor'),
         request.form.get('director'),
         request.form.get('rating')
         )
-        try:
-            cur= mysql.connection.cursor()
-            try:
-                sql = " INSERT INTO MovDetails (MovieName, MaleLead, FemaleLead, YearOfRelease, Director, Ratings) values( '%s','%s','%s','%s','%s',%s);" % params
                 print(sql)
                 cur.execute(sql)
-                
-            except(IntegrityError,OperationalError) as e:
+                mysql.connection.commit() 
+            except Exception as e:
                 print(e)
-            
-        except DatabaseError or DataError as e:
-            print(e)
+                
+        except Exception as e:
+                print(e)
     return render_template("admin.html")
             
 
