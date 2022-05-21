@@ -21,5 +21,6 @@ INSERT INTO MovDetails (MovieName, MaleLead, FemaleLead, YearOfRelease, Director
 INSERT INTO MovDetails (MovieName, MaleLead, FemaleLead, YearOfRelease, Director, Ratings) values( 'Ulidavaru Kandanthe','Rakshit Shetty','Thara','2014','Rakshit Shetty',5);
 INSERT INTO MovDetails (MovieName, MaleLead, FemaleLead, YearOfRelease, Director, Ratings) values( 'K.G.F: Chapter 1','Yash','Srinidhi Shetty','2018','Prashanth Neel',5);
 INSERT INTO MovDetails (MovieName, MaleLead, FemaleLead, YearOfRelease, Director, Ratings) values( 'Lucia','Sathish Neenasam','Sruthi Hariharan','2013','Pawan Kumar',5);
+INSERT INTO MovDetails (MovieName, MaleLead, FemaleLead, YearOfRelease, Director, Ratings) values( 'Luca','Jacob Tremblay','Emma Berman','2021','Enrico Casarosa',4);
 
 select * from MovDetails;

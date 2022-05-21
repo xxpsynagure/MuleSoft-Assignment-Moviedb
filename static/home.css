@@ -43,10 +43,6 @@ h1 {
     100% {opacity:1;}
   }
 
-.btn {
-  display:flex;
-}
-
 .styled-table {
   border-collapse: collapse;
   margin: 25px 0;
